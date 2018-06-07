@@ -4,7 +4,8 @@ dist/
 npm-debug.log
 yarn-error.log
 .vscode/
-
+.settings/
+target/
 # Editor directories and files
 .idea
 *.suo
