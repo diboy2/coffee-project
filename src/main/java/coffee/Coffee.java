@@ -1,19 +1,32 @@
 
 package coffee;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
 
 @Entity
+@Table(name = "coffee")
 public class Coffee {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private final long id;
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
+
+  @Column(name = "name")
   private String name;
+
+  @Column(name = "image_url")
   private String imageURL;
+
+  @Column(name = "description")
   private String description;
 
-  public Coffee(long id, String name, String imageURL, String description){
-    this.id = id;
+  public Coffee() {
+  }
+  public Coffee( String name, String imageURL, String description){
     this.name = name;
     this.imageURL = imageURL;
     this.description = description;
