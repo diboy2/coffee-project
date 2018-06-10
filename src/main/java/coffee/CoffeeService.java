@@ -17,4 +17,9 @@ public class CoffeeService implements ICoffeeService {
   public Collection<Coffee> findAll() {
     return (Collection<Coffee>) repository.findAll();
   }
+
+  @Override
+  public Collection<Coffee> findByNameContaining(String name){
+    return (Collection<Coffee>) repository.findByNameContaining(name);
+  }
 }

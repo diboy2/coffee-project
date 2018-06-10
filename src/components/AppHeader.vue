@@ -15,7 +15,7 @@
           <div class="navbar-item">
               <div class="field">
                   <p class="control has-icons-right">
-                      <input class="input" placeholder="">
+                      <input class="input" placeholder="" v-on:keyup="filterItems">
                       <span class="icon is-small is-right">
                           <i class="fas fa-search"></i>
                       </span>
@@ -26,10 +26,11 @@
   </nav>
 </template>
 <script>
-const debounceEvent = (callback, time = 250, interval) =>
-  (...args) => {
-    clearTimeout(interval, interval = setTimeout(() => callback(...args), time));
+  export default {
+    methods: {
+      filterItems(event){
+        this.$store.dispatch("filterItemsByName", event.target.value);
+      }
+    }
   };
-
-
 </script>

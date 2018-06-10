@@ -10,20 +10,19 @@
   import axios from "axios";
   import CoffeeListMediaItem from "./CoffeeListMediaItem.vue";
   import CoffeeListInfoItem from "./CoffeeListInfoItem.vue";
+  import { mapState } from 'vuex';
 
   export default{
     components: {
       'coffee-list-media-item': CoffeeListMediaItem,
       'coffee-list-info-item': CoffeeListInfoItem
     },
-    data() {
-      return {
-        coffees: []
-      }
-    },
+    computed: mapState({
+      coffees: state => state.items
+    }),
     mounted() {
       axios({ method: "GET", "url": "http://localhost:8080/coffees/findAll"}).then(result => {
-          this.coffees = result.data;
+          this.$store.dispatch("setItemsAsync", result.data);
       }, error => {
         console.error(error);
       });

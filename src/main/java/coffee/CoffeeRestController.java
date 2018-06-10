@@ -34,5 +34,10 @@ public class CoffeeRestController {
       return new ResponseEntity<>(coffeeService.findAll(), HttpStatus.OK);
   }
 
-
+  @RequestMapping(params={"name"},
+    method = RequestMethod.GET
+  )
+  public ResponseEntity<Collection<Coffee>> findCoffeesWithName(@RequestParam( value="name") String name) {
+      return new ResponseEntity<>(coffeeService.findByNameContaining(name), HttpStatus.OK);
+  }
 }
