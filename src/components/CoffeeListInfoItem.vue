@@ -3,8 +3,10 @@
     <div class="card">
         <div class="card-content">
             <div class="content">
-                <coffee-list-info-item-rating v-for="rating in ratings" :key="rating.id" v-bind:heading="rating.heading">
-                </coffee-list-info-item-rating>
+                <div class="columns is-multiline">
+                  <coffee-list-info-item-rating v-for="rating in ratings" :key="rating.id" v-bind:heading="rating.heading">
+                  </coffee-list-info-item-rating>
+                </div>
             </div>
         </div>
     </div>
@@ -24,8 +26,8 @@
           ratings: [
             {
               id: 1,
-              meaning: "fragrance_aroma",
-              heading: "Fragrance/Aroma",
+              meaning: "aroma",
+              heading: "Aroma",
               value: 0
             },
             {
@@ -74,6 +76,12 @@
               id: 9,
               meaning: "uniformity",
               heading: "Uniformity",
+              value: 0
+            },
+            {
+              id: 10,
+              meaning: "overall",
+              heading: "Overall",
               value: 0
             }]
         };

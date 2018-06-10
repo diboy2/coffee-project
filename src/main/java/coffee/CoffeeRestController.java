@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import coffee.Coffee;
 import coffee.CoffeeService;
 
 @RestController
 @RequestMapping("/coffees")
+@CrossOrigin(origins = "http://localhost:8081")
 public class CoffeeRestController {
 
   @Autowired
@@ -32,5 +34,5 @@ public class CoffeeRestController {
       return new ResponseEntity<>(coffeeService.findAll(), HttpStatus.OK);
   }
 
-  
+
 }

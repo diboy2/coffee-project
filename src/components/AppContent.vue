@@ -1,8 +1,6 @@
 <template>
   <section class="section">
-        <div class="container">
-          <coffee-list></coffee-list>
-        </div>
+     <coffee-list></coffee-list>
     </section>
 </template>
 <script>
