@@ -9,6 +9,9 @@
   import AppHeader from "./components/AppHeader.vue";
   import AppContent from "./components/AppContent.vue";
   import store from "./store/index.js";
+
+
+
   export default {
     components: {
       'app-header': AppHeader,
