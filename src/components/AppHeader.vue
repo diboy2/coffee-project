@@ -38,7 +38,7 @@
               <div class="navbar-item">
 
 
-                <button class="button"><span class="icon"><i class="fas fa-plus"></i></span><span> Create Brew</span></button>
+                <button class="button" v-on:click="showCreateBlendModal"><span class="icon"><i class="fas fa-plus"></i></span><span> Create Blend</span></button>
               </div>
               <div class="navbar-item" v-show="!currentUser">
                 <button class="button is-primary" v-on:click="showLoginModal">Login</button>
@@ -61,16 +61,19 @@
             </div>
           </div>
           <login-modal></login-modal>
+          <create-blend-modal></create-blend-modal>
   </nav>
 </template>
 <script>
   import LoginModal from "./LoginModal.vue";
+  import CreateBlendModal from "./CreateBlendModal.vue";
   import { mapState } from 'vuex';
   import firebase from 'firebase';
 
   export default {
     components: {
-      "login-modal": LoginModal
+      "login-modal": LoginModal,
+      "create-blend-modal": CreateBlendModal
     },
     computed: mapState({
       currentUser: state => state.currentUser
@@ -81,6 +84,11 @@
       },
       showLoginModal(){
         this.$store.dispatch("hideShowLoginModal", true);
+      },
+      showCreateBlendModal(){
+        this.$store.dispatch(
+          "hideShowCreateBlendModal", true
+        );
       },
       signOutUser(){
         firebase.auth().signOut().then(() => {

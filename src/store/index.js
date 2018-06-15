@@ -13,7 +13,8 @@ export default new Vuex.Store({
   state: {
     items: [],
     currentUser: firebase.auth().currentUser,
-    showLoginModal: false
+    showLoginModal: false,
+    showCreateBlendModal: false
   },
   mutations:  {
     setItems(state, items) {
@@ -27,6 +28,12 @@ export default new Vuex.Store({
     },
     hideLoginModal: state => {
       state.showLoginModal = false;
+    },
+    showCreateBlendModal: state=> {
+      state.showCreateBlendModal = true;
+    },
+    hideCreateBlendModal: state => {
+      state.showCreateBlendModal = false;
     }
   },
   actions: {
@@ -50,8 +57,12 @@ export default new Vuex.Store({
     hideShowLoginModal({commit}, isShown){
       isShown? commit("showLoginModal") : commit("hideLoginModal");
     },
+    hideShowCreateBlendModal({commit}, isShown){
+      isShown? commit("showCreateBlendModal") : commit("hideCreateBlendModal");
+    },
     signOutUser({commit}){
       commit("setUser");
-    }
+    },
+
   }
 });

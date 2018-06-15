@@ -1,17 +1,39 @@
 <template>
-  <div class="column is-3">
+  <div class="column">
       <div class="card">
-
-          <div class="card-image">
-              <figure class="image is-square">
-                  <img src="https://i.imgur.com/wXic6F9b.png" alt="Placeholder image" />
-              </figure>
-          </div>
-          <div class="card-content">
-            <div class="content">
-              test test test test test test test
+        <div class="card-content">
+          <div class="content">
+            <div class='carousel carousel-animated carousel-animate-slide'>
+              <div class='carousel-container'>
+                <div class='carousel-item has-background is-active'>
+                  <img class="is-background" src="https://i.imgur.com/wXic6F9b.png" alt=""  />
+                  <div class="title">Merry Christmas</div>
+                </div>
+              </div>
+              <div class="carousel-navigation is-overlay">
+                <div class="carousel-nav-left">
+                  <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </div>
+                <div class="carousel-nav-right">
+                  <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="card-footer">
+          <div class="tags" style="padding: 10px;">
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+             <span class="tag is-medium"><a href="#">OnesOne</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+          </div>
+        </div>
       </div>
   </div>
 </template>
