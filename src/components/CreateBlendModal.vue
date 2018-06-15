@@ -5,11 +5,18 @@
         <header class="modal-card-head">
           <p class="modal-card-title">Create Blend </p>
           <button class="delete" aria-label="close"
-          v-on:click="hideCreateBlendModal"></button>
+           v-on:click="hideCreateBlendModal"></button>
         </header>
+
+               <figure class="image is-3by2 ">
+                <img src="https://bulma.io/images/placeholders/480x320.png">
+              </figure>
+
+
         <section class="modal-card-body">
-              <div class="columns">
-              </div>
+
+            <input class="input" type="tags" placeholder="Add Tag" value="Tag1,Tag2,Tag3">
+
         </section>
         <footer class="modal-card-foot">
           <button class="button is-success">Save</button>
