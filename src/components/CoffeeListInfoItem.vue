@@ -1,5 +1,5 @@
 <template>
-  <div class="column is-three-quarter">
+  <div class="column is-9">
     <div class="card">
         <div class="card-content">
             <div class="content">
