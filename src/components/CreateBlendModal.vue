@@ -14,9 +14,16 @@
 
 
         <section class="modal-card-body">
-
-            <input class="input" type="tags" placeholder="Add Tag" value="Tag1,Tag2,Tag3">
-
+          <div class="tags" style="padding: 10px;">
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+             <span class="tag is-medium"><a href="#">OnesOne</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium"><a href="#">One</a></span>
+          </div>
         </section>
         <footer class="modal-card-foot">
           <button class="button is-success">Save</button>
@@ -28,12 +35,16 @@
 <script>
   import CoffeeListMediaItem from "./CoffeeListMediaItem.vue";
   import CoffeeListInfoItem from "./CoffeeListInfoItem.vue";
+  import bulmaTagsInput from "bulma-tagsinput";
   import { mapState } from 'vuex';
 
 export default {
     components:{
       'coffee-list-media-item': CoffeeListMediaItem,
       'coffee-list-info-item': CoffeeListInfoItem
+    },
+    mounted(){
+      bulmaTagsInput.attach();
     },
     computed: mapState({
       showCreateBlendModal: state => state.showCreateBlendModal

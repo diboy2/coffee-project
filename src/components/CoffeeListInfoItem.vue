@@ -7,6 +7,19 @@
                   <coffee-list-info-item-rating v-for="rating in ratings" :key="rating.id" v-bind:heading="rating.heading">
                   </coffee-list-info-item-rating>
                 </div>
+                <div class="level">
+                  <div class="level-left">
+
+                  </div>
+                  <div class="level-right">
+                    <div class="level-item">
+                      <div class="field">
+                        <input id="switchExample" type="checkbox" name="switchExample" class="switch" checked="checked">
+                        <label for="switchExample">Rate</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
         <div class="card-footer">
@@ -22,7 +35,7 @@
                     <textarea class="textarea" placeholder="Add a comment..."></textarea>
                   </p>
                 </div>
-                <nav class="level">
+                <div class="level">
                   <div class="level-left">
 
                   </div>
@@ -31,7 +44,7 @@
                       <a class="button is-info">Submit</a>
                     </div>
                   </div>
-                </nav>
+                </div>
               </div>
             </article>
         </div>
@@ -42,11 +55,14 @@
 <script>
   import CoffeeListInfoItemDescription from  "./CoffeeListInfoItemDescription.vue";
   import CoffeeListInfoItemRating from "./CoffeeListInfoItemRating.vue";
-
+  import bulmaSwitch from "bulma-switch";
   export default{
     components:{
       'coffee-list-info-item-description':CoffeeListInfoItemDescription,
       'coffee-list-info-item-rating': CoffeeListInfoItemRating
+    },
+    mounted(){
+      bulmaSwitch.attach();
     },
     data(){
       return {

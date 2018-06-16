@@ -8,9 +8,8 @@
 <script>
   import AppHeader from "./components/AppHeader.vue";
   import AppContent from "./components/AppContent.vue";
+
   import store from "./store/index.js";
-
-
 
   export default {
     components: {
@@ -27,5 +26,7 @@
   }
 </script>
 
-<style{{#sass}} lang="scss"{{/sass}}>
+<style lang="scss">
+@import '~bulma/bulma.sass';
+@import '~bulma-carousel/dist/css/bulma-carousel.sass';
 </style>

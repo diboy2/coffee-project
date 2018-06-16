@@ -3,14 +3,18 @@
       <div class="card">
         <div class="card-content">
           <div class="content">
-            <div class='carousel carousel-animated carousel-animate-slide'>
+            <div class='carousel carousel-animated carousel-animate-slide'  data-autoplay='true'>
               <div class='carousel-container'>
                 <div class='carousel-item has-background is-active'>
                   <img class="is-background" src="https://i.imgur.com/wXic6F9b.png" alt=""  />
                   <div class="title">Merry Christmas</div>
                 </div>
+                <div class='carousel-item has-background'>
+                  <img class="is-background" src="https://i.imgur.com/wXic6F9b.png" alt=""  />
+                  <div class="title">Merry Christmas</div>
+                </div>
               </div>
-              <div class="carousel-navigation ">
+              <div class="carousel-navigation">
                 <div class="carousel-nav-left">
                   <i class="fa fa-chevron-left" aria-hidden="true"></i>
                 </div>
@@ -31,16 +35,19 @@
             <span class="tag is-medium"><a href="#">One</a></span>
             <span class="tag is-medium"><a href="#">One</a></span>
             <span class="tag is-medium"><a href="#">One</a></span>
-            <span class="tag is-medium"><a href="#">One</a></span>
           </div>
         </div>
       </div>
   </div>
 </template>
 <script>
+  import bulmaCarousel from 'bulma-carousel';
   export default {
     props: {
       coffee: Object
+    },
+    mounted(){
+      bulmaCarousel.attach();
     }
   }
 </script>
