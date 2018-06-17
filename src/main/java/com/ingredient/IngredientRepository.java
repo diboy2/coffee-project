@@ -1,4 +1,4 @@
-package ingredient;
+package com.ingredient;
 
 import java.util.Collection;
 
@@ -7,5 +7,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
-  Collection<Ingredient> findByBlendId(long blendId);
 }

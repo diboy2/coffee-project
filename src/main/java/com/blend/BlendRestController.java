@@ -1,4 +1,4 @@
-package coffee;
+package com.blend;
 
 import javax.inject.Inject;
 import java.util.concurrent.atomic.AtomicLong;
@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import blend.Blend;
-import blend.BlendService;
+import com.blend.Blend;
+import com.blend.BlendService;
 
 @RestController
-@RequestMapping("/blends")
 @CrossOrigin(origins = "http://localhost:8081")
 public class BlendRestController{
 
@@ -29,9 +28,8 @@ public class BlendRestController{
     this.blendService = blendService;
   }
 
-  @RequestMapping("/findAll")
-  public ResponseEntity<Collection<Blend>>
-  getAllBlends(){
+  @RequestMapping("/blends/findAll")
+  public ResponseEntity<Collection<Blend>>getAllBlends() {
     return new ResponseEntity<>(blendService.findAll(), HttpStatus.OK);
   }
 }

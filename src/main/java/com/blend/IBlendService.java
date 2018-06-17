@@ -1,6 +1,6 @@
-package blend;
+package com.blend;
 
-import blend.Blend;
+import com.blend.Blend;
 import java.util.Collection;
 
 public interface IBlendService {

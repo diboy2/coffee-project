@@ -1,12 +1,12 @@
-package coffee;
+package com.coffee;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import coffee.Coffee;
-import coffee.CoffeeRepository;
+import com.coffee.Coffee;
+import com.coffee.CoffeeRepository;
 
 @Service
 public class CoffeeService implements ICoffeeService {

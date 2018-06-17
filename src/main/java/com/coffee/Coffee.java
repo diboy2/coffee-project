@@ -1,5 +1,5 @@
 
-package coffee;
+package com.coffee;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

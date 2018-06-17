@@ -1,4 +1,4 @@
-package ingredient;
+package com.ingredient;
 import javax.inject.Inject;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.Collection;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import ingredient.Ingredient;
-import ingredient.IngredientService;
+import com.ingredient.Ingredient;
+import com.ingredient.IngredientService;
 
 @RestController
 @RequestMapping("/ingredients")
@@ -30,11 +30,7 @@ public class IngredientRestController {
   @RequestMapping("/findAll")
   public ResponseEntity<Collection<Ingredient>>
   getAllIngredients(){
-    return new Responseentity<>(ingredientService.findAll(), HttpStatus.OK);
+    return new ResponseEntity<>(ingredientService.findAll(), HttpStatus.OK);
   }
 
-  @RequestMapping(params={"blendId"}, method=RequestMethod.GET)
-  public ResponseEntity<Collection<Ingredient>>findIngredientsByBlendId(@RequestParam(value="blendId") long blendId) {
-    return new ResponseEntity<>(ingredientService.findIngredientsByBlendId(blendId), HttpStatus.OK);
-  }
 }

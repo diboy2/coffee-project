@@ -1,5 +1,5 @@
 
-package coffee;
+package app.coffee;
 import javax.inject.Inject;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.Collection;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import coffee.Coffee;
-import coffee.CoffeeService;
+import com.coffee.Coffee;
+import com.coffee.CoffeeService;
 
 @RestController
 @RequestMapping("/coffees")

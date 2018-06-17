@@ -1,6 +1,6 @@
-package coffee;
+package com.coffee;
 
-import coffee.Coffee;
+import com.coffee.Coffee;
 import java.util.Collection;
 
 public interface ICoffeeService {

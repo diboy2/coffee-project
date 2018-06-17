@@ -60,7 +60,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-            <mainClass>coffee.App</mainClass>
+            <mainClass>com.App</mainClass>
         </configuration>
       </plugin>
     </plugins>

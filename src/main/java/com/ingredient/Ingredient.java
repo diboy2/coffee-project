@@ -1,4 +1,4 @@
-package ingredient;
+package com.ingredient;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +20,7 @@ public class Ingredient {
   @Column(name = "image_url")
   private String imageURL;
 
-  @Column(blendId = "blend_id")
+  @Column(name = "blend_id")
   private long blendId;
 
   public Ingredient() {
