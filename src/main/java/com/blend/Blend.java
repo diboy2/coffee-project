@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
 
+import com.fasterxml.jackson.annotation.*;
 
 import com.ingredient.Ingredient;
 
@@ -23,8 +24,9 @@ public class Blend {
   private long blendId;
 
   @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             mappedBy = "blend")
+  @JsonManagedReference
   private Collection<Ingredient> ingredients;
 
   public Blend() {

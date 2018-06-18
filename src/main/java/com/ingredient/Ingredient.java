@@ -6,6 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+
+import com.fasterxml.jackson.annotation.*;
+
+import com.blend.Blend;
 
 @Entity
 @Table(name = "ingredient")
@@ -20,17 +27,19 @@ public class Ingredient {
   @Column(name = "image_url")
   private String imageURL;
 
-  @Column(name = "blend_id")
-  private long blendId;
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "blend_id")
+  @JsonBackReference
+  private Blend blend;
 
   public Ingredient() {
 
   }
 
-  public Ingredient (String name, String imageURL, long blendId){
+  public Ingredient (String name, String imageURL, Blend blend){
     this.name = name;
     this.imageURL = imageURL;
-    this.blendId = blendId;
+    this.blend = blend;
   }
 
   public long getIngredientId(){
@@ -45,7 +54,7 @@ public class Ingredient {
     return this.imageURL;
   }
 
-  public long getBlendId(){
-    return this.blendId;
+  public Blend getBlend(){
+    return this.blend;
   }
 }

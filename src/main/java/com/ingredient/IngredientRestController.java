@@ -27,10 +27,4 @@ public class IngredientRestController {
     this.ingredientService = ingredientService;
   }
 
-  @RequestMapping("/findAll")
-  public ResponseEntity<Collection<Ingredient>>
-  getAllIngredients(){
-    return new ResponseEntity<>(ingredientService.findAll(), HttpStatus.OK);
-  }
-
 }
