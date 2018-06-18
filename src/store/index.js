@@ -14,9 +14,13 @@ export default new Vuex.Store({
     items: [],
     currentUser: firebase.auth().currentUser,
     showLoginModal: false,
-    showCreateBlendModal: false
+    showCreateBlendModal: false,
+    blends: []
   },
   mutations:  {
+    setBlends(state, blends){
+      state.blends = blends;
+    },
     setItems(state, items) {
       state.items = items;
     },
@@ -37,6 +41,16 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    getBlends({commit}){
+      axios({
+        method: "GET",
+        url: `http://localhost:8080/blends/findAll`
+      }).then(result => {
+        commit('setBlends', result.data);
+      }, error => {
+        console.error(error);
+      });
+    },
     setItemsAsync({commit}, items){
       commit('setItems', items);
     },

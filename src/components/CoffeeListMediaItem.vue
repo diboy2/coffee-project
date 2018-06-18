@@ -5,13 +5,8 @@
           <div class="content">
             <div class='carousel carousel-animated carousel-animate-slide'  data-autoplay='true'>
               <div class='carousel-container'>
-                <div class='carousel-item has-background is-active'>
-                  <img class="is-background" src="https://i.imgur.com/wXic6F9b.png" alt=""  />
-                  <div class="title">Merry Christmas</div>
-                </div>
-                <div class='carousel-item has-background'>
-                  <img class="is-background" src="https://i.imgur.com/wXic6F9b.png" alt=""  />
-                  <div class="title">Merry Christmas</div>
+                <div class='carousel-item has-background'  v-for="(ingredient, index) in coffee.ingredients" :key="ingredient.ingredientId" v-bind:class="{ 'is-active': index === 0}">
+                  <img class="is-background" v-bind:src="ingredient.imageURL" alt=""  />
                 </div>
               </div>
               <div class="carousel-navigation">
@@ -27,14 +22,7 @@
         </div>
         <div class="card-footer">
           <div class="tags" style="padding: 10px;">
-            <span class="tag is-medium"><a href="#">One</a></span>
-            <span class="tag is-medium"><a href="#">One</a></span>
-            <span class="tag is-medium"><a href="#">One</a></span>
-             <span class="tag is-medium"><a href="#">OnesOne</a></span>
-            <span class="tag is-medium"><a href="#">One</a></span>
-            <span class="tag is-medium"><a href="#">One</a></span>
-            <span class="tag is-medium"><a href="#">One</a></span>
-            <span class="tag is-medium"><a href="#">One</a></span>
+            <span class="tag is-medium" v-for="ingredient in coffee.ingredients" :key="ingredient.ingredientId"><a href="#">{{ingredient.name}}</a></span>
           </div>
         </div>
       </div>
@@ -47,6 +35,9 @@
       coffee: Object
     },
     mounted(){
+      bulmaCarousel.attach();
+    },
+    updated(){
       bulmaCarousel.attach();
     }
   }
