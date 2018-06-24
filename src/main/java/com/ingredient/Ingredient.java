@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.*;
 
@@ -18,7 +19,8 @@ import com.blend.Blend;
 @Table(name = "ingredient")
 public class Ingredient {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @SequenceGenerator(name = "ingredient_local_seq", sequenceName = "ingredient_ingredient_id_seq", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ingredient_local_seq")
   private long ingredientId;
 
   @Column(name = "name")
@@ -36,12 +38,6 @@ public class Ingredient {
 
   }
 
-  public Ingredient (String name, String imageURL, Blend blend){
-    this.name = name;
-    this.imageURL = imageURL;
-    this.blend = blend;
-  }
-
   public long getIngredientId(){
     return this.ingredientId;
   }
@@ -56,5 +52,9 @@ public class Ingredient {
 
   public Blend getBlend(){
     return this.blend;
+  }
+
+  public void setBlend(Blend blend){
+    this.blend = blend;
   }
 }

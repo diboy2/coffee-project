@@ -1,7 +1,7 @@
 package com.ingredient;
 import javax.inject.Inject;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.Collection;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

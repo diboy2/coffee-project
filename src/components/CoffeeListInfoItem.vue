@@ -3,10 +3,6 @@
     <div class="card">
         <div class="card-content">
             <div class="content">
-                <div class="columns is-multiline">
-                  <coffee-list-info-item-rating v-for="rating in ratings" :key="rating.id" v-bind:heading="rating.heading">
-                  </coffee-list-info-item-rating>
-                </div>
                 <div class="level">
                   <div class="level-left">
 
@@ -14,11 +10,33 @@
                   <div class="level-right">
                     <div class="level-item">
                       <div class="field">
-                        <input id="switchExample" type="checkbox" name="switchExample" class="switch" checked="checked">
-                        <label for="switchExample">Rate</label>
+                        <div class="dropdown is-hoverable">
+                          <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                              <span>Average Ratings</span>
+                              <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                              </span>
+                            </button>
+                          </div>
+                          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                              <a href="#" class="dropdown-item">
+                                Average Ratings
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                My Rating
+                              </a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="columns is-multiline">
+                  <coffee-list-info-item-rating v-for="rating in ratings" :key="rating.id" v-bind:heading="rating.heading">
+                  </coffee-list-info-item-rating>
                 </div>
             </div>
         </div>

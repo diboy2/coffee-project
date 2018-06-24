@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.blend.Blend;
 import com.blend.BlendService;
@@ -29,8 +30,13 @@ public class BlendRestController{
     this.blendService = blendService;
   }
 
-  @RequestMapping("/findAll")
+  @RequestMapping(method = RequestMethod.GET)
   public ResponseEntity<Collection<Blend>>getAllBlends() {
     return new ResponseEntity<>(blendService.findAll(), HttpStatus.OK);
+  }
+
+  @RequestMapping(method = RequestMethod.POST)
+  public ResponseEntity<?> addBlend(@RequestBody Blend blend) {
+    return new ResponseEntity<>(blendService.saveBlend(blend), HttpStatus.CREATED);
   }
 }

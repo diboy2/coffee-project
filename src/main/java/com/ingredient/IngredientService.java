@@ -1,6 +1,6 @@
 package com.ingredient;
 
-import java.util.Collection;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +14,8 @@ public class IngredientService implements IIngredientService {
   private IngredientRepository repository;
 
   @Override
-  public Collection<Ingredient> findAll(){
-    return (Collection<Ingredient>) repository.findAll();
+  public Set<Ingredient> findAll(){
+    return (Set<Ingredient>) repository.findAll();
   }
 
 }

@@ -20,4 +20,11 @@ public class BlendService implements IBlendService {
   public Collection<Blend> findAll(){
    return (Collection<Blend>) repository.findAll();
   }
+
+  @Override
+  public Blend saveBlend(Blend blend){
+    blend.mapToIngredients();
+    return (Blend)repository.save(blend);
+  }
+
 }

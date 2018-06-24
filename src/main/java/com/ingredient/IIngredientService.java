@@ -1,8 +1,8 @@
 package com.ingredient;
 
 import com.ingredient.Ingredient;
-import java.util.Collection;
+import java.util.Set;
 
 public interface IIngredientService {
-  public Collection<Ingredient> findAll();
+  public Set<Ingredient> findAll();
 }

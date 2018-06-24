@@ -18,6 +18,9 @@ export default new Vuex.Store({
     blends: []
   },
   mutations:  {
+    addBlend(state, blend){
+      state.blends.push(blend);
+    },
     setBlends(state, blends){
       state.blends = blends;
     },
@@ -41,10 +44,22 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    addBlend({commit}, data){
+      axios({
+        method: "POST",
+        url: `http://localhost:8080/blends`,
+        data
+      }).then(results => {
+        commit("addBlend", results.data);
+        commit("hideCreateBlendModal");
+      }, error => {
+        console.error(error);
+      });
+    },
     getBlends({commit}){
       axios({
         method: "GET",
-        url: `http://localhost:8080/blends/findAll`
+        url: `http://localhost:8080/blends`
       }).then(result => {
         commit('setBlends', result.data);
       }, error => {
@@ -76,7 +91,6 @@ export default new Vuex.Store({
     },
     signOutUser({commit}){
       commit("setUser");
-    },
-
+    }
   }
 });

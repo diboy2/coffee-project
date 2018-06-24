@@ -22,17 +22,17 @@
         </div>
         <div class="card-footer">
           <div class="tags" style="padding: 10px;">
-            <span class="tag is-medium" v-for="ingredient in coffee.ingredients" :key="ingredient.ingredientId"><a href="#">{{ingredient.name}}</a></span>
+            <span class="tag is-medium" v-for="ingredient in coffee.ingredients" :key="ingredient.ingredientId" ><a href="#">{{ingredient.name}}</a></span>
           </div>
         </div>
       </div>
   </div>
 </template>
 <script>
-  import bulmaCarousel from 'bulma-carousel';
+  import bulmaCarousel from "bulma-carousel";
   export default {
     props: {
-      coffee: Object
+      coffee: Object,
     },
     mounted(){
       bulmaCarousel.attach();

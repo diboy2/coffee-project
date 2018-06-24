@@ -22,4 +22,6 @@ public class CoffeeService implements ICoffeeService {
   public Collection<Coffee> findByNameContaining(String name){
     return (Collection<Coffee>) repository.findByNameContaining(name);
   }
+
+  
 }
