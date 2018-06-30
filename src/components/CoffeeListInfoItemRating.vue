@@ -5,27 +5,33 @@
                   {{heading}}
               </div>
               <div class="column is-three-fifths" v-if="showSlider">
-                  <input class="slider is-fullwidth" step="1" min="0" max="100" value="50" type="range">
+                <vue-slider v-model="value" v-bind:min="min" v-bind:max="max"  ></vue-slider>
               </div>
               <div class="column is-three-fifths" v-else>
-                  <progress class="progress" value="15" max="100">15%</progress>
+                 <progress class="progress" value="15" max="100">15%</progress>
               </div>
           </div>
       </div>
 </template>
 
 <script>
-  import bulmaSlider from "bulma-slider";
+  import vueSlider from "vue-slider-component";
+
 
   export default {
+    components: {
+      vueSlider
+    },
     props: {
       heading: String,
       showSlider: true
     },
-    mounted(){
-      if(this.showSlider){
-        bulmaSlider.attach();
-      }
+    data() {
+      return {
+        value: 0,
+        min: 0,
+        max: 10
+      };
     }
   }
 </script>

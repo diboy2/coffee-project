@@ -8,35 +8,20 @@
 
                   </div>
                   <div class="level-right">
-                    <div class="level-item">
-                      <div class="field">
-                        <div class="dropdown is-hoverable">
-                          <div class="dropdown-trigger">
-                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                              <span>Average Ratings</span>
-                              <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
-                              </span>
-                            </button>
-                          </div>
-                          <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content">
-                              <a href="#" class="dropdown-item">
-                                Average Ratings
-                              </a>
-                              <a href="#" class="dropdown-item">
-                                My Rating
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <dropdown v-bind:dropdownItems="dropdownItems" v-bind:currentlySelectedDropdownItemKey="currentlySelectedDropdownItemKey" @update="updateDropdownKey"> </dropdown>
                   </div>
                 </div>
                 <div class="columns is-multiline">
-                  <coffee-list-info-item-rating v-for="rating in ratings" :key="rating.id" v-bind:heading="rating.heading">
+                  <coffee-list-info-item-rating v-for="rating in ratings" :key="rating.id" v-bind:heading="rating.heading" v-bind:showSlider="showSlider">
                   </coffee-list-info-item-rating>
+                </div>
+                <div class="level" v-show="showSlider">
+                  <div class="level-left">
+
+                  </div>
+                  <div class="level-right">
+                    <a class="button is-primary">Save Rating</a>
+                  </div>
                 </div>
             </div>
         </div>
@@ -74,16 +59,27 @@
   import CoffeeListInfoItemDescription from  "./CoffeeListInfoItemDescription.vue";
   import CoffeeListInfoItemRating from "./CoffeeListInfoItemRating.vue";
   import bulmaSwitch from "bulma-switch";
+  import Dropdown from "./Dropdown.vue";
+   import {
+    COFFEE_LIST_INFO_ITEM_DROPDOWN
+  } from "../constants.js";
   export default{
     components:{
       'coffee-list-info-item-description':CoffeeListInfoItemDescription,
-      'coffee-list-info-item-rating': CoffeeListInfoItemRating
+      'coffee-list-info-item-rating': CoffeeListInfoItemRating,
+      'dropdown': Dropdown
+    },
+    props: {
+      showSlider: Boolean
     },
     mounted(){
       bulmaSwitch.attach();
     },
     data(){
       return {
+        dropdownItems: COFFEE_LIST_INFO_ITEM_DROPDOWN,
+        currentlySelectedDropdownItemKey: "AVERAGE_RATINGS",
+        showSlider: false,
         ratings: [
           {
             id: 1,
@@ -146,6 +142,17 @@
             value: 0
           }]
       };
+    },
+    methods: {
+      updateDropdownKey(key){
+        this.currentlySelectedDropdownItemKey = key;
+        if(this.currentlySelectedDropdownItemKey === "MY_RATINGS"){
+          this.showSlider = true;
+        }
+        else{
+          this.showSlider = false;
+        }
+      }
     }
   }
 </script>

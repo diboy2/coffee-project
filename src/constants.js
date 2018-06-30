@@ -7,3 +7,7 @@ export const FIREBASE_CONFIG = {
   messagingSenderId: "744468728887"
 };
 
+export const COFFEE_LIST_INFO_ITEM_DROPDOWN = {
+  MY_RATINGS: "My Ratings",
+  AVERAGE_RATINGS: "Average Ratings"
+};
