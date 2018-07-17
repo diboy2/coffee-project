@@ -6,7 +6,7 @@
                   <img src="https://bulma.io/images/bulma-logo-white.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
               </a>
 
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" v-on:click="toggleMenu">
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
@@ -15,7 +15,7 @@
 
 
 
-          <div class="navbar-menu">
+          <div class="navbar-menu" v-bind:class="{ 'is-active': showMenu }">
             <div class="navbar-start">
               <div class="navbar-item">
                 <div class="field">
@@ -75,10 +75,21 @@
       "login-modal": LoginModal,
       "create-blend-modal": CreateBlendModal
     },
+    props: {
+      showMenu: Boolean
+    },
     computed: mapState({
       currentUser: state => state.currentUser
     }),
+    data(){
+      return{
+        showMenu: false
+      }
+    },
     methods: {
+      toggleMenu(){
+        this.showMenu = !this.showMenu;
+      },
       filterItems(event){
         this.$store.dispatch("filterItemsByName", event.target.value);
       },

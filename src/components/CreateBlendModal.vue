@@ -3,7 +3,7 @@
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
-          <p class="modal-card-title">Create Blend </p>
+          <p class="modal-card-title">Create Blend</p>
             <button class="delete" aria-label="close"
             v-on:click="hideCreateBlendModal"></button>
             </header>

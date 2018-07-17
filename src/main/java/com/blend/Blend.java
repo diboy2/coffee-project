@@ -21,6 +21,9 @@ import com.ratinggroup.RatingGroup;
 
 @Entity
 @Table(name ="blend")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, 
+                  property  = "blendId", 
+                  scope     = Long.class)
 public class Blend {
   @Id
   @SequenceGenerator(name = "blend_local_seq", sequenceName = "blend_blend_id_seq", allocationSize = 1)
@@ -30,13 +33,11 @@ public class Blend {
   @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
             mappedBy = "blend")
-  @JsonManagedReference
   private Set<Ingredient> ingredients;
 
   @OneToMany(cascade = CascadeType.ALL, 
             fetch = FetchType.EAGER, 
             mappedBy = "blend")
-  @JsonManagedReference
   private Set<RatingGroup> ratingGroups;
 
   public Blend() {
