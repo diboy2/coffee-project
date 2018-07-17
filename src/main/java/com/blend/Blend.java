@@ -33,7 +33,9 @@ public class Blend {
   @JsonManagedReference
   private Set<Ingredient> ingredients;
 
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "blend")
+  @OneToMany(cascade = CascadeType.ALL, 
+            fetch = FetchType.EAGER, 
+            mappedBy = "blend")
   @JsonManagedReference
   private Set<RatingGroup> ratingGroups;
 
