@@ -15,7 +15,6 @@ public class BlendService implements IBlendService {
   @Autowired
   private BlendRepository repository;
 
-
   @Override
   public Collection<Blend> findAll(){
    return (Collection<Blend>) repository.findAll();

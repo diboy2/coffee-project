@@ -36,7 +36,7 @@ export default new Vuex.Store({
     hideLoginModal: state => {
       state.showLoginModal = false;
     },
-    showCreateBlendModal: state=> {
+    showCreateBlendModal: state => {
       state.showCreateBlendModal = true;
     },
     hideCreateBlendModal: state => {
@@ -44,8 +44,18 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    addBlend({commit}, data){
+    saveRatings({commit}, data){
       axios({
+        method: "POST",
+        url: `http://localhost:8080/rating-groups`
+      }).then(results => {
+        
+      }, error => {
+        console.error(error);
+      });
+    },
+    addBlend({commit}, data){
+      axios({   
         method: "POST",
         url: `http://localhost:8080/blends`,
         data

@@ -1,6 +1,6 @@
 package com.ratinggroup;
 
-import java.util.Set;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +15,8 @@ public class RatingGroupService implements IRatingGroupService {
   private RatingGroupRepository repository;
 
   @Override
-  public Set<RatingGroup> findAll() {
-    return (Set<RatingGroup>) repository.findAll();
+  public Collection<RatingGroup> findAll() {
+    return (Collection<RatingGroup>) repository.findAll();
   }
 
   @Override

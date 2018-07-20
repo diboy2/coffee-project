@@ -21,7 +21,6 @@ import com.blend.BlendService;
 @RequestMapping("/blends")
 @CrossOrigin(origins = "http://localhost:8081")
 public class BlendRestController{
-
   @Autowired
   BlendService blendService;
 

@@ -1,9 +1,9 @@
 package com.ratinggroup;
 
 import com.ratinggroup.RatingGroup;
-import java.util.Set;
+import java.util.Collection;
 
 public interface IRatingGroupService {
-  public Set<RatingGroup> findAll();
+  public Collection<RatingGroup> findAll();
   public RatingGroup saveRatingGroup(RatingGroup ratingGroup);
 }

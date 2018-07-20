@@ -29,9 +29,24 @@ public class Rating{
 
   }
 
+  public long getRatingId(){
+    return this.ratingId;
+  }
+
+  public String getMean(){
+    return this.mean;
+  }
+
+  public RatingGroup getRatingGroup(){
+    return this.ratingGroup;
+  }
+
+  public long getValue(){
+    return this.value;
+  }
+
   public void setRatingGroup(RatingGroup ratingGroup) {
     this.ratingGroup = ratingGroup;
   }
-
 
 }

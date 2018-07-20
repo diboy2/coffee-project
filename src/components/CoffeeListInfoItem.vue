@@ -12,7 +12,7 @@
                   </div>
                 </div>
                 <div class="columns is-multiline">
-                  <coffee-list-info-item-rating v-for="rating in ratings" :key="rating.id" v-bind:heading="rating.heading" v-bind:showSlider="showSlider">
+                  <coffee-list-info-item-rating v-for="(rating, index) in ratings" :key="rating.id" v-bind:index="index" v-bind:heading="rating.heading" v-bind:showSlider="showSlider" v-on:rating-change="onRatingChange">
                   </coffee-list-info-item-rating>
                 </div>
                 <div class="level" v-show="showSlider">
@@ -20,11 +20,11 @@
 
                   </div>
                   <div class="level-right">
-                    <a class="button is-primary">Save Rating</a>
+                    <a class="button is-primary" @click="saveRatings">Save Ratings</a>
                   </div>
                 </div>
             </div>
-        </div>
+        </div>  
         <div class="card-footer">
             <article class="media card-footer-item">
               <figure class="media-left">
@@ -152,7 +152,17 @@
         else{
           this.showSlider = false;
         }
+      },
+      onRatingChange(object){
+        this.ratings[object.index].value = object.value;
+      },
+      saveRatings(){
+        console.log("ratings");
+        console.log(this.ratings);
+
+        
       }
-    }
+    },
+    
   }
 </script>

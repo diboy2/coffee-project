@@ -5,7 +5,7 @@
                   {{heading}}
               </div>
               <div class="column is-three-fifths" v-if="showSlider">
-                <vue-slider v-model="value" v-bind:min="min" v-bind:max="max"  ></vue-slider>
+                <vue-slider v-model="value" v-bind:min="min" v-bind:max="max"></vue-slider>
               </div>
               <div class="column is-three-fifths" v-else>
                  <progress class="progress" value="15" max="100">15%</progress>
@@ -17,14 +17,14 @@
 <script>
   import vueSlider from "vue-slider-component";
 
-
   export default {
     components: {
       vueSlider
     },
     props: {
       heading: String,
-      showSlider: true
+      showSlider: true,
+      index: Number
     },
     data() {
       return {
@@ -32,6 +32,14 @@
         min: 0,
         max: 10
       };
+    },
+    watch: {
+      value(value) {
+        this.$emit("rating-change",{
+          index: this.index,
+          value
+        });
+      }
     }
   }
 </script>
