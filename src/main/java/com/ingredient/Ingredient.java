@@ -26,11 +26,11 @@ public class Ingredient {
   @Column(name = "name")
   private String name;
 
-  @Column(name = "image_url")
+  @Column(name = "imageURL")
   private String imageURL;
 
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "blend_id")
+  @JoinColumn(name = "blendId")
   @JsonBackReference
   private Blend blend;
 

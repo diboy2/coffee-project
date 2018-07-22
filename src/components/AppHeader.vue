@@ -36,8 +36,6 @@
             </div>
             <div class="navbar-end">
               <div class="navbar-item">
-
-
                 <button class="button" v-on:click="showCreateBlendModal"><span class="icon"><i class="fas fa-plus"></i></span><span> Create Blend</span></button>
               </div>
               <div class="navbar-item" v-show="!currentUser">

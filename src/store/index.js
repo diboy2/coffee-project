@@ -44,18 +44,23 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    saveRatings({commit}, data){
+    saveRatings({commit}, ratings){
       axios({
         method: "POST",
-        url: `http://localhost:8080/rating-groups`
+        url: `http://localhost:8080/rating-groups`,
+        data: {
+          ratings: ratings,
+          userId: this.state.currentUser.uid
+        }
       }).then(results => {
-        
+        console.log("success");
+        console.log(results);
       }, error => {
         console.error(error);
       });
     },
     addBlend({commit}, data){
-      axios({   
+      axios({ 
         method: "POST",
         url: `http://localhost:8080/blends`,
         data

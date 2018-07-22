@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.OneToMany;
 import javax.persistence.FetchType;
 import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.*;
@@ -32,12 +33,11 @@ public class Blend {
 
   @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER,
-            mappedBy = "blend")
+            mappedBy="blend")
   private Set<Ingredient> ingredients;
 
-  @OneToMany(cascade = CascadeType.ALL, 
-            fetch = FetchType.EAGER, 
-            mappedBy = "blend")
+  @OneToMany(cascade = CascadeType.ALL)
+  @JoinColumn(name="blendId")
   private Set<RatingGroup> ratingGroups;
 
   public Blend() {
@@ -56,7 +56,12 @@ public class Blend {
     return this.ingredients;
   }
 
+  public Set<RatingGroup> getRatingGroups(){
+    return this.ratingGroups;
+  }
+
   public void mapToIngredients(){
     this.ingredients.forEach( ingredient -> ingredient.setBlend(this));
   }
+
 }

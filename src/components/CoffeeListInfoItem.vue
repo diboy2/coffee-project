@@ -83,61 +83,61 @@
         ratings: [
           {
             id: 1,
-            meaning: "aroma",
+            mean: "aroma",
             heading: "Aroma",
             value: 0
           },
           {
             id: 2,
-            meaning: "flavor",
+            mean: "flavor",
             heading: "Flavor",
             value: 0
           },
           {
             id: 3,
-            meaning: "aftertaste",
+            mean: "aftertaste",
             heading: "Aftertaste",
             value: 0
           },
           {
             id: 4,
-            meaning: "acidity",
+            mean: "acidity",
             heading: "Acidity",
             value: 0
           },
           {
             id: 5,
-            meaning: "sweetness",
+            mean: "sweetness",
             heading: "Sweetness",
             value: 0
           },
           {
             id: 6,
-            meaning: "mouthfeel",
+            mean: "mouthfeel",
             heading: "MouthFeel",
             value: 0
           },
           {
             id: 7,
-            meaning: "balance",
+            mean: "balance",
             heading: "Balance",
             value: 0
           },
           {
             id: 8,
-            meaning: "clean_cup",
+            mean: "clean_cup",
             heading: "Clean Cup",
             value: 0
           },
           {
             id: 9,
-            meaning: "uniformity",
+            mean: "uniformity",
             heading: "Uniformity",
             value: 0
           },
           {
             id: 10,
-            meaning: "overall",
+            mean: "overall",
             heading: "Overall",
             value: 0
           }]
@@ -157,10 +157,13 @@
         this.ratings[object.index].value = object.value;
       },
       saveRatings(){
-        console.log("ratings");
-        console.log(this.ratings);
-
-        
+        const mappedRatings = this.ratings.map((rating) => {
+          return {
+            mean: rating.mean,
+            value: rating.value
+          }
+        });
+        this.$store.dispatch("saveRatings", mappedRatings);
       }
     },
     

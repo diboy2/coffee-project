@@ -33,6 +33,4 @@ public class RatingGroupRestController {
   public ResponseEntity<?> addRatingGroup(@RequestBody RatingGroup ratingGroup) {
     return new ResponseEntity<>(ratingGroupService.saveRatingGroup(ratingGroup), HttpStatus.CREATED);
   }
-
-  
 }
