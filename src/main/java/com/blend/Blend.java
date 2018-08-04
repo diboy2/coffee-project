@@ -36,14 +36,15 @@ public class Blend {
             mappedBy="blend")
   private Set<Ingredient> ingredients;
 
-  @OneToMany(cascade = CascadeType.ALL)
-  @JoinColumn(name="blendId")
+  @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+  @JoinColumn(name="blend_id")
   private Set<RatingGroup> ratingGroups;
 
   public Blend() {
 
   }
-
+  
   public long getBlendId(){
     return this.blendId;
   }

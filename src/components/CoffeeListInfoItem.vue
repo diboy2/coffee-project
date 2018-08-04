@@ -70,7 +70,8 @@
       'dropdown': Dropdown
     },
     props: {
-      showSlider: Boolean
+      showSlider: Boolean,
+      coffee: Object
     },
     mounted(){
       bulmaSwitch.attach();
@@ -163,9 +164,11 @@
             value: rating.value
           }
         });
-        this.$store.dispatch("saveRatings", mappedRatings);
+        this.$store.dispatch("saveRatings", {
+          blendId: this.coffee.blendId,
+          ratings: mappedRatings
+        });
       }
-    },
-    
+    },   
   }
 </script>

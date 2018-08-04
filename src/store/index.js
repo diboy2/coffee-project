@@ -44,14 +44,13 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    saveRatings({commit}, ratings){
+    saveRatings({commit}, data){
       axios({
         method: "POST",
         url: `http://localhost:8080/rating-groups`,
-        data: {
-          ratings: ratings,
+        data: Object.assign({
           userId: this.state.currentUser.uid
-        }
+        }, data) 
       }).then(results => {
         console.log("success");
         console.log(results);

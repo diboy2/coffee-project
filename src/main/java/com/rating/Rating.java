@@ -18,7 +18,7 @@ public class Rating{
   private String mean;
 
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "ratingGroupId")
+  @JoinColumn(name = "rating_group_id")
   @JsonBackReference
   private RatingGroup ratingGroup;
 

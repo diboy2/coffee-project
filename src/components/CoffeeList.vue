@@ -2,7 +2,7 @@
   <div class="container">
     <div class="columns" v-for="coffee in coffees" :key="coffee.id" >
       <coffee-list-media-item v-bind:coffee="coffee" ></coffee-list-media-item>
-      <coffee-list-info-item></coffee-list-info-item>
+      <coffee-list-info-item v-bind:coffee="coffee"></coffee-list-info-item>
 
     </div>
   </div>

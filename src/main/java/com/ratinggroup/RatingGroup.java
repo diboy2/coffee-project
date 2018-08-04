@@ -12,11 +12,10 @@ import com.blend.Blend;
 
 @Entity
 @Table(name = "rating_group")
-public class RatingGroup {
+public class RatingGroup {  
   @Id
   @SequenceGenerator(name = "rating_group_local_seq", sequenceName = "rating_group_rating_group_id_seq", allocationSize = 1)
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "rating_group_local_seq")
-  @JsonManagedReference
   private long ratingGroupId;
 
   @OneToMany(cascade = CascadeType.ALL, 
@@ -26,10 +25,10 @@ public class RatingGroup {
   private Set<Rating> ratings;
 
 
-  @Column(name="blendId")
+  @Column(name="blend_id")
   private long blendId;
 
-  @Column(name = "userId")
+  @Column(name = "user_id")
   private String userId;
 
   public RatingGroup() {
